@@ -1,0 +1,146 @@
+*, *::before, *::after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+button, select {
+    text-transform: none;
+}
+
+input, button, select, optgroup, textarea {
+    margin: 0;
+    color: inherit;
+    font-size: inherit;
+    font-family: inherit;
+    line-height: inherit;
+}
+
+.btn {
+    line-height: 1.5;
+    position: relative;
+    display: inline-block;
+    font-weight: 400;
+    white-space: nowrap;
+    text-align: center;
+    background-image: none;
+    border: 1px solid transparent;
+    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
+    cursor: pointer;
+    -webkit-transition: all .3s cubic-bezier(.645, .045, .355, 1);
+    transition: all .3s cubic-bezier(.645, .045, .355, 1);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    height: 32px;
+    padding: 0 15px;
+    font-size: 14px;
+    border-radius: 4px;
+    color: rgba(0, 0, 0, 0.65);
+    background-color: #fff;
+    border-color: #d9d9d9;
+}
+
+.btn::before {
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    bottom: -1px;
+    left: -1px;
+    z-index: 1;
+    display: none;
+    background: #fff;
+    border-radius: inherit;
+    opacity: .35;
+    -webkit-transition: opacity .2s;
+    transition: opacity .2s;
+    content: '';
+    pointer-events: none;
+}
+
+.btn, .btn:active, .btn:focus {
+    outline: 0;
+}
+
+.btn:hover, .btn:focus, .btn:active, .btn.active {
+    text-decoration: none;
+    background: #fff;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1890ff;
+    border-color: #1890ff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
+    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
+}
+
+.btn-primary:hover, .ant-btn-primary:focus {
+    color: #fff;
+    background-color: #40a9ff;
+    border-color: #40a9ff;
+}
+
+.btn-ghost {
+    color: rgba(0, 0, 0, 0.65);
+    background-color: transparent;
+    border-color: #d9d9d9;
+}
+
+.btn-dashed {
+    color: rgba(0, 0, 0, 0.65);
+    background-color: #fff;
+    border-color: #d9d9d9;
+    border-style: dashed;
+}
+
+.btn-link {
+    color: #1890ff;
+    background-color: transparent;
+    border-color: transparent;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.btn-circle {
+    min-width: 32px;
+    padding-right: 0;
+    padding-left: 0;
+    text-align: center;
+    border-radius: 50%;
+}
+
+.btn-circle-outline {
+    min-width: 32px;
+    padding-right: 0;
+    padding-left: 0;
+    text-align: center;
+    border-radius: 50%;
+}
+
+.btn-round {
+    height: 32px;
+    padding: 0 16px;
+    font-size: 14px;
+    border-radius: 32px;
+}
+
+.btn-large {
+    height: 40px;
+    padding: 0 15px;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+.btn-small {
+    height: 24px;
+    padding: 0 7px;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+.btn-loading {}
