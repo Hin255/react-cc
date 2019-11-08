@@ -143,4 +143,8 @@ input, button, select, optgroup, textarea {
     border-radius: 4px;
 }
 
+.btn-disabled {
+    cursor: no-drop;
+}
+
 .btn-loading {}

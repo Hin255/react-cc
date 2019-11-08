@@ -14,7 +14,6 @@ const Button = function(props) {
     }
 
     const {
-        prefixCls,
         pattern,
         type,
         shape,
@@ -22,29 +21,42 @@ const Button = function(props) {
         className,
         icon,
         ghost,
-        disable,
+        disabled,
+        children,
+        iconType,
+        loading,
+        click,
     } = props
 
-    const prefixCls = 'btn'
+    console.log('child', children)
+
     let sizeClass = ''
     switch (size) {
         case 'large':
-            sizeClass = 'lg';
-            break;
+            sizeClass = 'large'
+            break
         case 'small':
-            sizeClass = 'sm';
-            break;
+            sizeClass = 'small'
+            break
         default:
-            break;
+            break
     }
+    const prefixCls = 'btn'
     const classes = classNames(prefixCls, className, {
         [`${prefixCls}-${pattern}`]: pattern,
         [`${prefixCls}-${shape}`]: shape,
         [`${prefixCls}-${sizeClass}`]: sizeClass,
-        [`${prefixCls}-icon-only`]: !children && children !== 0 && iconType,
+        [`${prefixCls}-icon-only`]: !children && children !== 0 && iconType, // button 只显示一个图标
         [`${prefixCls}-loading`]: !!loading,
-        [`${prefixCls}-background-ghost`]: ghost,
+        [`${prefixCls}-ghost`]: ghost,
+        [`${prefixCls}-disabled`]: disabled,
     })
+
+    let options = {}
+    if(disabled) {
+        options.disabled = 'disabled'
+    }
+
     // 非受控组件 和 受控组件
     // 组件需要维护自身的状态, 当外部不需要控制组件内部的状态的时候, 组件需要自己控制自身的状态, 这就是非受控组件
     // 当外部需要控制组件的内部状态时, 组件的内部状态的控制权交给外层代码控制, 这是受控组件
@@ -53,9 +65,11 @@ const Button = function(props) {
         <button
             type={type}
             className={classes}
-            onClick={this.handleClick}
-            ref={this.saveButtonRef}
+            onClick={click}
+            // ref={this.saveButtonRef}
+            {...options} // 原始标签的属性
         >
+            {children}
         </button>
     )
     return buttonNode
@@ -70,20 +84,21 @@ Button.defaultProps = {
 
 const ButtonPattern = ['default', 'primary', 'ghost', 'dashed', 'danger', 'link']
 const ButtonShapes = ['circle', 'circle-outline', 'round']
-const ButtonSizes = ['large', 'default', 'small']   
-const ButtonHTMLTypes = ['submit', 'button', 'reset']
+const ButtonSizes = ['large', 'default', 'small']
+const ButtonTypes = ['submit', 'button', 'reset']
 
 Button.propTypes = {
     pattern: PropTypes.string, // promary
-    type: PropTypes.oneOf(ButtonHTMLTypes),
+    type: PropTypes.oneOf(ButtonTypes),
     shape: PropTypes.oneOf(ButtonShapes),
     size: PropTypes.oneOf(ButtonSizes),
-    onClick: PropTypes.func,
+    click: PropTypes.func,
     loading: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
     className: PropTypes.string,
     icon: PropTypes.string,
     disable: PropTypes.bool,
     title: PropTypes.string,
+    disabled: PropTypes.bool,
 }
 
 export default Button
